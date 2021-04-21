@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <link rel="stylesheet" href="/estilo.css"> -->
+    <link rel="stylesheet" href="./estilo.css" type="text/css" media="all">
+</head>
+
+<body background="./Imagenes/rickandmorty.jpg">
+    <div>
+        <script>
+            const valores = window.location.search;
+            const urlParams = new URLSearchParams(valores);
+            var usuario = urlParams.get('usuario');
+
+            fecha = new Date();
+            dia = fecha.getDate();
+            mes = fecha.getMonth() + 1;
+            anio = fecha.getFullYear();
+            hora = fecha.getHours();
+            minutos = fecha.getMinutes();
+            document.body.innerHTML = '<div style="float: right; color: red;">' + "Usuario conectado: " + usuario + "<br>" + "El dia es: " + dia + '/' + mes + '/' + anio + "<br>" + "Horario: " + hora + ":" + minutos + "<br>" + '<input type="button" value="Cerrar Sesion" id="desLogueo" onclick=cerrarSesion()>' + "</div>";
+        </script>
+    </div>
+
+    <div id="personaje">
+        <b style="color: black;">Ingrese el ID del personaje que desea conocer</b>
+        <br>
+        <input type="number" id="idPersonaje" onkeyup="descargarArchivo()">
+        <br>
+        <h2 id="error"></h2>
+        <h2 id="cargando">Cargando</h2>
+    </div>
+
+    <table class="container" id="tabla">
+        <thead>
+            <tr>
+                <th>
+                    <h1>ID</h1>
+                </th>
+                <th>
+                    <h1>Nombre</h1>
+                </th>
+                <th>
+                    <h1>Estado</h1>
+                </th>
+                <th>
+                    <h1>Especie</h1>
+                </th>
+                <th>
+                    <h1>Tipo</h1>
+                </th>
+                <th>
+                    <h1>Genero</h1>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="datos">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+            </tr>
+        </tbody>
+    </table>
+
+    <div id="imagenPersonaje" style="align-items: center;"></div>
+    <script src="logica.js"></script>
+</body>
+
+
+</html>
